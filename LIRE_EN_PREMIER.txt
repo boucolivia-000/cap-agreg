@@ -1,0 +1,9 @@
+Cap Agrég’ V3.3 — palettes intégrées
+
+Décompresser puis remplacer TOUS les fichiers du dépôt GitHub par les fichiers de ce dossier, à la racine du dépôt. Valider (Commit changes).
+
+Dans le Cahier Studio, vérifier le titre V3.3 et les huit grandes couleurs.
+
+Aucune modification de la base Supabase ni des données des fiches. Ne pas effacer les données du navigateur.
+
+Important : le navigateur peut afficher l’ancienne version jusqu’à la publication GitHub Pages et à la prochaine actualisation du service worker.
