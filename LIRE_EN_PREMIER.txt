@@ -1,5 +1,5 @@
-Cap Agrég’ V3.8 — Roboto Serif
-
-Remplace les fichiers du dépôt GitHub cap-agreg (branche main) avec le contenu de ce ZIP.
-Roboto Serif est chargée depuis Google Fonts ; une connexion Internet est nécessaire pour la première utilisation. Hors ligne, Georgia est utilisée en remplacement.
-La configuration Supabase et les données enregistrées ne sont pas modifiées.
+Cap Agrég’ V3.9 — Écoute, ressources et intégration.
+Installer les fichiers dans le dépôt cap-agreg (branche main), pas dans Nout’ Kaz.
+Les fiches et la configuration Supabase sont conservées.
+Lecture vocale : utilise les voix disponibles sur l’appareil ; ne génère pas de fichier audio.
+Intégration : certains sites interdisent les iframes ; un lien de secours est affiché.
