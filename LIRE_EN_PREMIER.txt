@@ -1,4 +1,5 @@
-Cap Agrég’ V3.7 — Fiche à compléter et fiche générée harmonisées.
-8 catégories, migration des anciennes rubriques lors de l’édition, deux colonnes 35/65, fonds pastel et textes colorés.
-Décompressez puis remplacez les fichiers du dépôt cap-agreg (et non Nout’ Kaz).
-Ne supprimez pas les données locales du navigateur.
+Cap Agrég’ V3.8 — Roboto Serif
+
+Remplace les fichiers du dépôt GitHub cap-agreg (branche main) avec le contenu de ce ZIP.
+Roboto Serif est chargée depuis Google Fonts ; une connexion Internet est nécessaire pour la première utilisation. Hors ligne, Georgia est utilisée en remplacement.
+La configuration Supabase et les données enregistrées ne sont pas modifiées.
