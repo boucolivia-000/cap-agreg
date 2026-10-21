@@ -1,0 +1,11 @@
+Cap Agrég’ V4.2 — Fiche → Cahier Pages + navigation pendant enregistrement
+
+- La fiche apparaît en lecture seule dans le Cahier Studio, au-dessus des pages libres.
+- La copie se met à jour après sauvegarde de la fiche (sens unique).
+- Bouton pour passer de la fiche au cahier, et inversement ; le brouillon est enregistré avant le changement.
+- Fenêtre vocale réduisible ; passer de la fiche au cahier sans arrêter la capture microphone.
+- Les audios restent enregistrés dans IndexedDB sur cet appareil (non synchronisés).
+
+IMPORTANT : Exporter une sauvegarde JSON avant la mise à jour. Ne pas effacer les données du navigateur. Importer les fichiers extraits dans le dépôt cap-agreg (branche main), pas ma-cuisine.
+
+Limites : la copie de la fiche est une section en lecture seule distincte du contenu libre de Pages. Le microphone et le fonctionnement sur mobile doivent être testés en conditions réelles.
