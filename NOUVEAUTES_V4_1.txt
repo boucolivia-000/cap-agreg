@@ -1,0 +1,8 @@
+Cap Agrég’ V4.1
+- Dans la fiche à remplir : bouton « Intégrer » et suppression des contenus intégrés.
+- Dans Cahier Studio : bouton de suppression directement sur chaque bloc intégré (mode Pages).
+- Dans Révisions : accès au cahier numérique sous la fiche/notion correspondante, décalage de 12 px, sans fond coloré, seulement si le cahier comporte du contenu.
+- Les enregistrements vocaux personnels et les fonctions précédentes sont conservés.
+
+Installation : envoyer les fichiers extraits dans le dépôt GitHub cap-agreg (branche main), pas dans le dépôt de cuisine.
+Sauvegardez vos données de l'application avant toute mise à jour. Ne videz pas les données de votre navigateur.
