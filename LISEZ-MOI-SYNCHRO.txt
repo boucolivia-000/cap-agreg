@@ -1,0 +1,16 @@
+CAP AGRÉG’ — SYNCHRONISATION
+
+1. Sur https://supabase.com crée un projet gratuit.
+2. Dans SQL Editor, exécute le contenu de supabase-setup.sql.
+3. Dans Authentication > Providers, active Email. Si la confirmation e-mail est activée, confirme ton compte après inscription.
+4. Dans Project Settings > API (ou Connect), relève Project URL et la clé publique publishable / anon. Ne partage jamais la clé service_role.
+5. Dépose index.html, sync.js, sw.js, manifest.webmanifest et les icônes sur GitHub Pages en conservant leurs noms.
+6. Sur chaque appareil, exporte d’abord une sauvegarde JSON, puis ouvre ☁ Sync. Renseigne la même URL Supabase, la même clé publique et connecte-toi avec le même compte.
+7. Clique Synchroniser maintenant sur chaque appareil. Les fiches et contenus sont fusionnés par identifiant.
+
+IMPORTANT :
+- Fonctionnement hors ligne conservé. La synchronisation reprend au retour du réseau et à la réouverture de l’onglet.
+- Si la même fiche est modifiée sur deux appareils hors ligne, la version ayant l’horodatage le plus récent l’emporte.
+- Le mot de passe ne doit jamais être envoyé dans ChatGPT.
+- La synchronisation exige une configuration Supabase personnelle ; elle n’est pas active avant cette configuration.
+- Version préparée et contrôlée syntaxiquement, non testée de bout en bout avec un compte Supabase réel.
