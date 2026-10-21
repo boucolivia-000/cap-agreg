@@ -1,9 +1,8 @@
-Cap Agrég’ V3.3 — palettes intégrées
+Cap Agrég’ V3.5 — Code couleur agrégation
 
-Décompresser puis remplacer TOUS les fichiers du dépôt GitHub par les fichiers de ce dossier, à la racine du dépôt. Valider (Commit changes).
+Installez tous les fichiers de cette archive dans le dépôt GitHub cap-agreg (pas ma-cuisine), branche main.
 
-Dans le Cahier Studio, vérifier le titre V3.3 et les huit grandes couleurs.
+8 couleurs pastel de surlignage : définitions (vert), auteurs (bleu), mécanismes (jaune), débats (rouge), problématiques (violet), exemples (orange), plans (gris clair), éléments essentiels (rose).
+12 couleurs de texte classiques et choix libre d'une couleur dans chaque palette. Pastilles 22 × 22 px.
 
-Aucune modification de la base Supabase ni des données des fiches. Ne pas effacer les données du navigateur.
-
-Important : le navigateur peut afficher l’ancienne version jusqu’à la publication GitHub Pages et à la prochaine actualisation du service worker.
+Les données, les identifiants Supabase et les clés locales ne sont pas modifiés. Ne pas effacer les données du navigateur.
