@@ -1,3 +1,4 @@
-Cap Agrég’ V3.6 — Installation : remplacer les fichiers dans le dépôt cap-agreg (branche main), puis Commit changes. Ne pas modifier Nout’ Kaz.
-Nouveautés : rédaction en Pages et organisation indépendante des paragraphes sur Tableau infini, post-it libres en Pages et Tableau, couleurs personnalisables, correction orthographique native. Les données restent dans les fiches existantes et Supabase.
-Important : en mode Tableau, modifier un extrait synchronisé remplace le texte de son paragraphe source dans Pages (mise en forme de ce paragraphe simplifiée).
+Cap Agrég’ V3.7 — Fiche à compléter et fiche générée harmonisées.
+8 catégories, migration des anciennes rubriques lors de l’édition, deux colonnes 35/65, fonds pastel et textes colorés.
+Décompressez puis remplacez les fichiers du dépôt cap-agreg (et non Nout’ Kaz).
+Ne supprimez pas les données locales du navigateur.
