@@ -1,8 +1,3 @@
-Cap Agrég’ V3.5 — Code couleur agrégation
-
-Installez tous les fichiers de cette archive dans le dépôt GitHub cap-agreg (pas ma-cuisine), branche main.
-
-8 couleurs pastel de surlignage : définitions (vert), auteurs (bleu), mécanismes (jaune), débats (rouge), problématiques (violet), exemples (orange), plans (gris clair), éléments essentiels (rose).
-12 couleurs de texte classiques et choix libre d'une couleur dans chaque palette. Pastilles 22 × 22 px.
-
-Les données, les identifiants Supabase et les clés locales ne sont pas modifiés. Ne pas effacer les données du navigateur.
+Cap Agrég’ V3.6 — Installation : remplacer les fichiers dans le dépôt cap-agreg (branche main), puis Commit changes. Ne pas modifier Nout’ Kaz.
+Nouveautés : rédaction en Pages et organisation indépendante des paragraphes sur Tableau infini, post-it libres en Pages et Tableau, couleurs personnalisables, correction orthographique native. Les données restent dans les fiches existantes et Supabase.
+Important : en mode Tableau, modifier un extrait synchronisé remplace le texte de son paragraphe source dans Pages (mise en forme de ce paragraphe simplifiée).
