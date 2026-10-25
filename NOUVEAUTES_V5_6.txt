@@ -1,0 +1,10 @@
+CAP AGRÉG’ V5.6 — TITRE DES SCHÉMAS ET MENU UNIFIÉ
+
+- Dans l’éditeur des schémas, la case « Afficher le titre dans la fiche » permet de choisir individuellement si le nom du schéma est visible dans Fiche complète et Synthèse interactive.
+- Le choix est sauvegardé dans les données du schéma (showTitle). Les anciens schémas continuent d’afficher leur titre par défaut.
+- Le nom reste disponible dans le sélecteur de schémas de l’éditeur, même lorsque son affichage est désactivé.
+- Les boutons du menu latéral des fiches utilisent désormais le même fond crème clair ; la page active est signalée par un discret trait et un texte plus soutenu.
+- Toutes les fonctionnalités de la V5.5 sont conservées.
+
+IMPORTANT : sauvegarder les données JSON avant installation ; ne pas vider les données du navigateur.
+Vérifications : syntaxe JavaScript et intégrité ZIP. Tests réels dans le navigateur à effectuer.
