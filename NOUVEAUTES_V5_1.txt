@@ -1,0 +1,14 @@
+CAP AGRÉG’ V5.1 — CAHIER STUDIO ET FICHE RÉUNIS
+
+- Les huit catégories de la fiche conservent les deux colonnes Notion et Définition.
+- Sous chaque catégorie, le cahier numérique est visible directement, sans devoir ouvrir le Studio.
+- « Modifier dans le Cahier Studio » ouvre la page liée à la catégorie sélectionnée.
+- Le contenu des pages du Studio est sauvegardé dans la fiche et repris sous la catégorie correspondante.
+- « Générer la fiche complète » regroupe les notions, définitions et pages du Studio par catégorie.
+- Les pages du Studio créées avant cette version, sans catégorie, restent accessibles et figurent en fin de fiche complète sous « Anciennes pages du Cahier Studio ».
+- Les pages supplémentaires, post-it et blocs texte de tableaux peuvent être affichés en aperçu dans la catégorie.
+- Les tracés manuscrits du Tableau infini restent dans le Studio ; leur rendu graphique dans la fiche n'est pas encore reproduit.
+- Les liaisons ajustables des schémas et les menus de la V5.0 sont conservés.
+
+IMPORTANT : Exporter une sauvegarde JSON avant installation. Ne pas effacer les données du navigateur.
+Vérification : syntaxe JavaScript et archive ZIP. Tester l'interface et la synchronisation sur vos appareils.
