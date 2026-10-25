@@ -1,0 +1,13 @@
+CAP AGRÉG’ V4.6 — CONNEXIONS DIRECTES ET FERMETURE DES FENÊTRES
+
+Schémas interactifs :
+- Bouton Relier : affiche quatre points sur chaque case.
+- Cliquer sur un point de départ puis un point d'arrivée directement sur les cases.
+- Cliquer sur une liaison pour choisir Trait, Flèche ou Point, ou la supprimer.
+- Les connexions suivent le déplacement des cases.
+- Cliquer hors de la fenêtre de schéma ou appuyer sur Échap pour la fermer.
+- Le numéro V4.6 est affiché dans l'application.
+
+Attention : les modifications apportées à la fermeture sont enregistrées dans la fiche.
+Les autres fonctionnalités de la V4.5 sont conservées.
+Tester sur ordinateur et téléphone avant de considérer la mise à jour validée.
