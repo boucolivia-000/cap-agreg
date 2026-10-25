@@ -1,0 +1,24 @@
+{
+  "name": "Nout’ Kaz",
+  "short_name": "Nout’ Kaz",
+  "description": "Recettes, planning, courses et organisation du foyer, synchronisés.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f1e8",
+  "theme_color": "#4f6f52",
+  "icons": [
+    {
+      "src": "nout-kaz-icon.png",
+      "sizes": "1536x1536",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
