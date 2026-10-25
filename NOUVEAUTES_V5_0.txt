@@ -1,0 +1,21 @@
+CAP AGRÉG’ V5.0 — FICHE UNIQUE ET LIAISONS AJUSTABLES
+
+1. Fiche unique :
+- Conserve les deux champs « Notion » et « Définition / explication » dans chaque catégorie.
+- Bouton « Cahier numérique de cette catégorie » sous chaque catégorie.
+- Rédaction libre enrichie (gras, italique, listes, titre) directement dans la fiche.
+- Le contenu est enregistré dans la même fiche, dans categoryNotebooks, sans effacer les anciennes données.
+- « Générer la fiche complète » regroupe notions, définitions et cahiers de chaque catégorie.
+- L'ancien cahier Studio reste accessible en option depuis les catégories, sans suppression des anciennes pages.
+
+2. Schémas :
+- Les liaisons orthogonales ont une poignée positionnée sur leur segment vertical réel.
+- Déplacer la poignée à gauche/droite pour raccourcir ou allonger le détour.
+- Le glisser reste actif pendant le redessin de la liaison (capture sur le canevas).
+- Styles de traits et ancrages conservés.
+
+3. Navigation :
+- Organisation des menus de V4.9 conservée.
+
+Sauvegarde : exporter vos données JSON avant installation. Ne jamais vider les données du navigateur.
+Tests : vérification syntaxique JavaScript et intégrité ZIP. Interactions à tester dans un navigateur réel.
