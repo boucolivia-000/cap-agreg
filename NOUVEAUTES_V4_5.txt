@@ -1,0 +1,4 @@
+Cap Agrég’ V4.5 — Édition intégrée
+Les boîtes de dialogue natives de saisie et de confirmation sont remplacées par des panneaux intégrés, non bloquants, et les notifications par des messages discrets.
+Les schémas utilisent un panneau de propriétés pour modifier directement les cases.
+Vérifier les fonctionnalités sur vos appareils après installation.
