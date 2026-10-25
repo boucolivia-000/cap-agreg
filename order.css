@@ -27,3 +27,18 @@
 .cap-order-block .cap-u-stickers>div{padding:10px;border-radius:7px}
 @media(max-width:650px){.cap-order-block{grid-template-columns:27px minmax(0,1fr);gap:5px}.cap-order-controls{opacity:1}.cap-order-block>.cap-u-item{padding:7px}.cap-order-controls button{min-width:24px}}
 @media print{.cap-order-controls,.cap-u-actions,.cap-category-actions{display:none!important}.cap-order-block{display:block;break-inside:avoid}.cap-order-block>.cap-u-item{border:0;padding:0}.cap-u-scroll{overflow:visible}}
+
+/* V5.5 — one subtle drag handle on the right, editor only */
+.cap-order-block{grid-template-columns:minmax(0,1fr) 23px;gap:7px;align-items:center}
+.cap-order-block>.cap-order-controls{grid-column:2;grid-row:1;opacity:.22;padding:0;align-self:center;justify-self:center}
+.cap-order-block>.bubble-row,.cap-order-block>.cap-u-item,.cap-order-block>.category-pair,.cap-order-block>.category-summary{grid-column:1;grid-row:1}
+.cap-order-controls button{display:none!important}
+.cap-order-grip{display:inline-flex;align-items:center;justify-content:center;min-width:22px;min-height:36px;cursor:grab;touch-action:none;font-size:20px;line-height:1;color:#67877c}
+.cap-order-grip:active{cursor:grabbing}
+.cap-order-block:hover>.cap-order-controls,.cap-order-controls:focus-within{opacity:.9}
+.cap-sheet-layout .cap-order-block{display:block}
+.cap-sheet-layout .cap-order-controls{display:none!important}
+.cap-sheet-layout .cap-u-actions,.cap-sheet-layout [data-u-edit],.cap-sheet-layout [data-u-assign]{display:none!important}
+.cap-sheet-layout .cap-u-item-head:empty{display:none}
+.cap-summary-complete .cap-u-item-head:empty{display:none}
+@media print{.cap-order-controls{display:none!important}}

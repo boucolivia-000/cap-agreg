@@ -1,0 +1,18 @@
+Cap Agrég’ V5.5 — interface allégée et filtres de révision
+
+MODIFIER LA FICHE
+- Une seule poignée ⠿ à droite de chaque bloc, sans flèches haut/bas.
+- Glisser-déposer les blocs depuis cette poignée pour les réorganiser.
+- Modifier le schéma ou changer sa catégorie reste possible uniquement dans Modifier la fiche.
+
+FICHE COMPLÈTE ET SYNTHÈSE INTERACTIVE
+- Aucun bouton Modifier, aucun menu de catégorie et aucune commande de déplacement.
+- Les contenus suivent automatiquement l'ordre enregistré dans Modifier la fiche.
+- Les schémas gardent leurs cases et réponses interactives, sans titre dans la synthèse interactive.
+
+RÉVISIONS
+- Filtres par discipline (y compris Toutes) ; liste basée sur les programmes associés aux fiches.
+- Tri alphabétique français A→Z et Z→A, cumulable avec le filtre.
+
+Sauvegardez vos données JSON avant mise à jour. Ne supprimez pas les données du navigateur.
+Tests automatiques : syntaxe JavaScript et intégrité ZIP ; interactions à vérifier en navigateur.

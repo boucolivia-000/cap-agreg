@@ -52,14 +52,14 @@ function previewMap(f,cat){
  if(quick)map.set('quick:notes',quick);
  return map;
 }
-function controls(cat,key){return `<div class="cap-order-controls"><button type="button" data-cap-move="-1" aria-label="Remonter cet élément" title="Remonter">↑</button><button type="button" data-cap-move="1" aria-label="Descendre cet élément" title="Descendre">↓</button><span class="cap-order-grip" title="Faire glisser pour déplacer" aria-hidden="true">⠿</span></div>`}
-function orderedNode(cat,key,child){
+function controls(cat,key){return `<div class="cap-order-controls"><span class="cap-order-grip" draggable="true" role="button" tabindex="0" aria-label="Déplacer cet élément" title="Faire glisser pour déplacer">⠿</span></div>`}
+function orderedNode(cat,key,child,editable=true){
  const block=document.createElement('div');
  block.className='cap-order-block';
  block.dataset.capOrderCategory=cat;block.dataset.capOrderKey=key;
  block.draggable=false;
- block.innerHTML=controls(cat,key);
- block.querySelector('.cap-order-grip').draggable=true;
+ block.innerHTML=editable?controls(cat,key):'';
+ if(editable)block.querySelector('.cap-order-grip').draggable=true;
  block.append(child);
  return block;
 }
@@ -106,7 +106,7 @@ function sheetReorder(root,f){
   const rows=[...section.querySelectorAll('.category-pair, .category-summary')];
   (f.sections?.[cat]||[]).forEach((r,i)=>{if(rows[i])map.set(token('row',r._capId),rows[i])});
   const zone=document.createElement('div');zone.className='cap-order-zone';
-  for(const key of keys){const node=map.get(key);if(node)zone.append(orderedNode(cat,key,node))}
+  for(const key of keys){const node=map.get(key);if(node){node.querySelectorAll('[data-u-edit],[data-u-assign]').forEach(el=>el.remove());const actions=node.querySelector('.cap-u-actions');if(actions)actions.remove();const head=node.querySelector('.cap-u-item-head');if(head){if(mode==='summary'&&key.startsWith('diagram:'))head.remove();else if(!head.textContent.trim())head.remove()}zone.append(orderedNode(cat,key,node,false))}}
   section.querySelectorAll('.cap-generated-notebook').forEach(el=>el.remove());
   section.append(zone);
  }
@@ -150,7 +150,7 @@ document.addEventListener('click',e=>{
 let dragging=null;
 document.addEventListener('dragstart',e=>{
  const block=e.target.closest('[data-cap-order-key]');
- if(!block)return;
+ if(!block||page!=='editor'||!e.target.closest('.cap-order-grip'))return;
  dragging={cat:block.dataset.capOrderCategory,key:block.dataset.capOrderKey};
  e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',dragging.key);
  block.classList.add('cap-order-dragging');
@@ -161,7 +161,7 @@ document.addEventListener('dragover',e=>{
 });
 document.addEventListener('drop',e=>{
  const block=e.target.closest('[data-cap-order-key]');
- if(!block||!dragging||block.dataset.capOrderCategory!==dragging.cat)return;
+ if(!block||page!=='editor'||!dragging||block.dataset.capOrderCategory!==dragging.cat)return;
  e.preventDefault();e.stopPropagation();
  const f=page==='editor'?draft:by('fiches',selected.fiche);
  if(!f)return;
