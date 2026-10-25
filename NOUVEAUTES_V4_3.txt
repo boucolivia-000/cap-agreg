@@ -1,0 +1,8 @@
+Cap Agrég’ V4.3
+- Lecteur audio avec durée et curseur natif
+- Chapitres vocaux : marquer pendant l’enregistrement, ajouter, renommer, déplacer et supprimer après
+- Option écouter uniquement une partie
+- Bouton ▶ Écouter depuis Révisions
+- Dans Tableau infini, cases « Nouvelle notion » avec réponse interactive révélable au clic
+- Conservation des fonctions précédentes et des données locales
+Attention : les fichiers audio restent locaux à chaque appareil.
