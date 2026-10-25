@@ -1,0 +1,16 @@
+CAP AGRÉG’ V5.2 — TOUS LES CONTENUS DU STUDIO DANS LA FICHE
+
+- Affichage directement sous chaque catégorie des pages du Cahier Studio (texte mis en forme, images, tableaux HTML, contenus intégrés et post-it).
+- Affichage visuel des tableaux infinis, avec leurs blocs, post-it, liens entre notions et tracés manuscrits.
+- Affichage des schémas interactifs avec cases, couleurs et liaisons, et révélation des définitions en cliquant sur une case.
+- Modification des schémas depuis la fiche par le bouton Modifier.
+- Un bouton Modifier dans le Cahier Studio et Créer un schéma est disponible dans chaque catégorie.
+- Les contenus créés depuis une catégorie y sont automatiquement associés.
+- Les anciens contenus non classés apparaissent en fin de fiche complète dans Contenus à classer : un sélecteur permet de les rattacher à la bonne catégorie sans les supprimer.
+- La zone vide Rédaction rapide reste fermée par défaut. Les contenus déjà enregistrés sont conservés.
+- Générer la fiche complète rassemble les notions, définitions et les contenus visuels associés.
+
+LIMITES : les aperçus du Tableau infini ne sont pas modifiables directement dans la fiche : cliquer Modifier pour ouvrir le Studio. Les schémas restent éditables dans leur outil. Certains contenus intégrés externes peuvent dépendre de leur fournisseur et d'une connexion Internet.
+
+IMPORTANT : faire une sauvegarde JSON avant mise à jour ; conserver les audios importants. Ne pas vider les données du navigateur.
+Contrôles effectués : syntaxe JavaScript, intégrité ZIP. Test fonctionnel dans le navigateur à effectuer.
