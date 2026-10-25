@@ -1,15 +1,16 @@
 (()=>{'use strict';
 const css=`#cap-diagram-modal{position:fixed;inset:0;background:#13283bbb;z-index:100001;display:flex;align-items:center;justify-content:center;padding:12px}#cap-diagram-modal *{box-sizing:border-box}#cap-diagram-shell{background:#fffaf5;border-radius:16px;width:min(1100px,100%);height:min(92vh,880px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 15px 60px #0004}#cap-diagram-tools{display:flex;flex-wrap:wrap;gap:7px;padding:12px;border-bottom:1px solid #e2d8ce;align-items:center}#cap-diagram-tools button,#cap-diagram-tools select{background:white;border:1px solid #bcb4aa;border-radius:7px;padding:8px;cursor:pointer;font-size:13px}#cap-diagram-tools button.selected{background:#d5e9de}#cap-diagram-stage-wrap{overflow:auto;flex:1;background:#f4f0eb}#cap-diagram-stage{position:relative;width:1100px;height:760px;background-color:white;background-image:linear-gradient(#dfe8eb 1px,transparent 1px),linear-gradient(90deg,#dfe8eb 1px,transparent 1px);background-size:25px 25px}#cap-diagram-lines{position:absolute;inset:0;pointer-events:none} .cap-shape{position:absolute;min-width:110px;min-height:65px;border:2px solid #7196a1;border-radius:10px;background:#e8f2f4;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;cursor:grab;touch-action:none;user-select:none;white-space:pre-wrap;overflow-wrap:anywhere;font:600 15px 'Roboto Serif',serif}.cap-shape.selected{outline:3px solid #e59b58;outline-offset:3px}.cap-shape.circle{border-radius:50%}.cap-shape.diamond{border-radius:4px;transform:rotate(45deg)}.cap-shape.diamond .cap-shape-label{transform:rotate(-45deg)}.cap-shape .cap-shape-label{pointer-events:none}.cap-shape .cap-shape-reveal{display:block;font:12px system-ui;color:#365b6b;margin-top:4px}.cap-diagram-help{padding:8px 12px;font:12px system-ui;color:#666;border-top:1px solid #ddd}#cap-diagram-properties{padding:12px;border-top:1px solid #ddd;display:grid;gap:6px;max-height:32vh;overflow:auto;background:#fffdfb}#cap-diagram-properties label{display:grid;gap:3px;font:13px system-ui}#cap-diagram-properties textarea,#cap-diagram-properties select,#cap-diagram-properties input{padding:7px;border:1px solid #bbb;border-radius:6px;font:14px system-ui}#cap-diagram-answer{position:absolute;z-index:5;max-width:330px;background:white;border:1px solid #a5bac4;box-shadow:0 5px 18px #0002;border-radius:10px;padding:14px;white-space:pre-wrap;font:14px 'Roboto Serif',serif}`;
 const extraCss=`#cap-diagram-modal .cap-dg-anchor{position:absolute;width:17px;height:17px;padding:0;border-radius:50%;border:2px solid #286a88;background:#fff;z-index:8;cursor:crosshair;touch-action:manipulation}.cap-dg-anchor[data-dg-anchor="top"]{top:-10px;left:calc(50% - 8px)}.cap-dg-anchor[data-dg-anchor="right"]{right:-10px;top:calc(50% - 8px)}.cap-dg-anchor[data-dg-anchor="bottom"]{bottom:-10px;left:calc(50% - 8px)}.cap-dg-anchor[data-dg-anchor="left"]{left:-10px;top:calc(50% - 8px)}#cap-diagram-lines{pointer-events:auto}#cap-diagram-edges [data-dg-edge]{cursor:pointer}#cap-diagram-modal .cap-shape{overflow:visible}#cap-diagram-modal .cap-shape-label{pointer-events:auto;outline:none;cursor:text;min-width:40px}#cap-diagram-modal .cap-shape-label[contenteditable="true"]{user-select:text;cursor:text}#cap-diagram-modal .cap-dg-case-tools{position:absolute;left:calc(100% + 12px);top:0;z-index:20;background:#fffdf9;border:1px solid #d6c9bc;border-radius:12px;padding:7px;display:flex;flex-direction:column;gap:5px;box-shadow:0 4px 20px #0002;min-width:126px;font:12px system-ui;text-align:left}#cap-diagram-modal .cap-dg-case-tools label{display:flex;align-items:center;justify-content:space-between;gap:6px}#cap-diagram-modal .cap-dg-case-tools input[type=color]{width:34px;height:26px;padding:1px;border:1px solid #ddd;border-radius:5px;cursor:pointer}#cap-diagram-modal .cap-dg-case-tools button,#cap-dg-edge-tools button{border:1px solid #cbbdb0;border-radius:6px;background:#fff;padding:5px 7px;cursor:pointer}#cap-dg-edge-tools{position:absolute;z-index:25;background:#fffdfa;border:1px solid #d6c9bc;border-radius:10px;box-shadow:0 5px 20px #0002;padding:8px;display:flex;flex-wrap:wrap;align-items:center;gap:5px;width:320px;font:12px system-ui}#cap-dg-edge-tools label{display:flex;align-items:center;gap:4px}#cap-dg-edge-tools select{font:12px system-ui;max-width:108px}#cap-dg-edge-tools input[type=color]{width:31px;height:25px;padding:0}#cap-diagram-modal .cap-dg-definition{position:absolute;z-index:30;background:#fffdfb;border:1px solid #a8bac4;box-shadow:0 6px 22px #0003;border-radius:12px;padding:12px;width:280px;max-width:calc(100vw - 50px);font:13px system-ui;text-align:left}#cap-diagram-modal .cap-dg-definition textarea{width:100%;min-height:105px;resize:vertical;border:1px solid #bbb;border-radius:7px;padding:7px;font:13px system-ui}#cap-diagram-modal .cap-dg-definition button{float:right;border:0;background:transparent;cursor:pointer}#cap-diagram-modal .cap-dg-control{cursor:grab;touch-action:none}#cap-diagram-modal .cap-dg-resize{position:absolute;right:-8px;bottom:-8px;width:15px;height:15px;background:#fff;border:2px solid #d58b49;border-radius:4px;cursor:nwse-resize;touch-action:none}#cap-diagram-modal .cap-dg-case-tools button.selected,#cap-dg-edge-tools button.selected{background:#dceee3}#cap-diagram-modal .cap-shape{user-select:none}#cap-diagram-modal .cap-shape-label{white-space:pre-wrap;overflow-wrap:anywhere}`;
-const style=document.createElement('style');style.textContent=css+extraCss;document.head.append(style);
-let current=null,mode='edit',chosen=null,linkFrom=null,drag=null,doc=null,connecting=false,edgeSelected=null,definitionOpen=null,edgeDrag=null;
+const polishCss=`#cap-diagram-modal .cap-dg-case-tools{border:1px solid #e8e4df;box-shadow:0 3px 12px #00000013;background:#fffefa;padding:5px;min-width:115px}#cap-dg-edge-tools{border:1px solid #e8e4df;box-shadow:0 4px 14px #00000018;width:310px;padding:6px}#cap-dg-edge-tools[hidden]{display:none!important}#cap-diagram-modal .cap-dg-move{cursor:move;touch-action:none;user-select:none;flex-basis:100%;font-size:11px;color:#73818a;padding:3px 4px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between}#cap-diagram-modal .cap-dg-definition{box-shadow:0 5px 16px #0000001a;border:1px solid #e2e5e5}#cap-diagram-tools{padding:7px 10px;gap:5px}#cap-diagram-tools button,#cap-diagram-tools select{padding:5px 7px;border-color:#e4e2df;background:transparent}#cap-diagram-shell{border-radius:11px}#cap-diagram-stage{background-image:linear-gradient(#e9eff0 1px,transparent 1px),linear-gradient(90deg,#e9eff0 1px,transparent 1px)}.cap-diagram-help{font-size:11px;line-height:1.4;color:#7d8790}`;
+const style=document.createElement('style');style.textContent=css+extraCss+polishCss;document.head.append(style);
+let current=null,mode='edit',chosen=null,linkFrom=null,drag=null,doc=null,connecting=false,edgeSelected=null,definitionOpen=null,edgeDrag=null,floatingDrag=null,windowPositions={};
 const sides=['top','right','bottom','left'];
 const uid=()=> 'dg'+Math.random().toString(36).slice(2,10);
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function store(){if(!draft)return;draft.studio??={};draft.studio.diagrams??=[];return draft.studio.diagrams}
 function saveDiagram(){if(!doc)return;const all=store();if(!all)return;const ix=all.findIndex(x=>x.id===doc.id);if(ix<0)all.push(doc);else all[ix]=doc;const i=db.fiches.findIndex(f=>f.id===draft.id);if(i>=0)db.fiches[i]=structuredClone(draft);else db.fiches.push(structuredClone(draft));save()}
-function close(){definitionOpen=null;edgeDrag=null;connecting=false;linkFrom=null;edgeSelected=null;saveDiagram();document.getElementById('cap-diagram-modal')?.remove();doc=null;chosen=null}
-function open(){if(!draft){const f=by('fiches',selected.fiche);if(f)initDraft(f)}if(!draft)return window.capNotice('Ouvre une fiche avant de créer un schéma.');window.capStudio?.capture?.();const all=store();const modal=document.createElement('div');modal.id='cap-diagram-modal';modal.innerHTML=`<div id="cap-diagram-shell"><div id="cap-diagram-tools"><strong>◇ Schémas interactifs · V4.7</strong><select id="cap-diagram-select" aria-label="Choisir un schéma"></select><button data-dg="new">＋ Schéma</button><button data-dg="rename">Renommer</button><button data-dg="add">＋ Case</button><button data-dg="connect">↗ Relier</button><button data-dg="mode">👁 Mode Révision</button><button data-dg="save">Enregistrer</button><button data-dg="close">✕ Fermer</button></div><div id="cap-diagram-stage-wrap"><div id="cap-diagram-stage"><svg id="cap-diagram-lines" width="1100" height="760" viewBox="0 0 1100 760"><defs><marker id="cap-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#628a97"/></marker></defs><g id="cap-diagram-edges"></g></svg><div id="cap-diagram-nodes"></div></div></div><div class="cap-diagram-help">Création : déplace les cases à la souris ou au doigt. « Relier » : clique directement sur un point d'une case puis sur un point d'une autre. Sélectionne ensuite la liaison pour changer son extrémité. Clique sur une case pour modifier directement son texte et ses couleurs. Clique sur une liaison pour choisir sa forme et sa couleur. En mode Révision, clique sur une case pour révéler sa réponse. Les schémas sont liés à cette fiche et sauvegardés avec elle.</div></div>`;document.body.append(modal);if(!all.length)all.push({id:uid(),title:'Mon premier schéma',nodes:[],edges:[]});doc=all[0];mode='edit';chosen=null;connecting=false;edgeSelected=null;linkFrom=null;draw();}
+function close(){definitionOpen=null;edgeDrag=null;floatingDrag=null;windowPositions={};connecting=false;linkFrom=null;edgeSelected=null;saveDiagram();document.getElementById('cap-diagram-modal')?.remove();doc=null;chosen=null}
+function open(){if(!draft){const f=by('fiches',selected.fiche);if(f)initDraft(f)}if(!draft)return window.capNotice('Ouvre une fiche avant de créer un schéma.');window.capStudio?.capture?.();const all=store();const modal=document.createElement('div');modal.id='cap-diagram-modal';modal.innerHTML=`<div id="cap-diagram-shell"><div id="cap-diagram-tools"><strong>◇ Schémas interactifs</strong><select id="cap-diagram-select" aria-label="Choisir un schéma"></select><button data-dg="new">＋ Schéma</button><button data-dg="rename">Renommer</button><button data-dg="add">＋ Case</button><button data-dg="connect">↗ Relier</button><button data-dg="mode">👁 Mode Révision</button><button data-dg="save">Enregistrer</button><button data-dg="close">✕ Fermer</button></div><div id="cap-diagram-stage-wrap"><div id="cap-diagram-stage"><svg id="cap-diagram-lines" width="1100" height="760" viewBox="0 0 1100 760"><defs><marker id="cap-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#628a97"/></marker></defs><g id="cap-diagram-edges"></g></svg><div id="cap-diagram-nodes"></div></div></div><div class="cap-diagram-help">Création : déplace les cases à la souris ou au doigt. « Relier » : clique directement sur un point d'une case puis sur un point d'une autre. Sélectionne ensuite la liaison pour changer son extrémité. Clique sur une case pour modifier directement son texte et ses couleurs. Clique sur une liaison pour choisir sa forme et sa couleur. En mode Révision, clique sur une case pour révéler sa réponse. Les schémas sont liés à cette fiche et sauvegardés avec elle.</div></div>`;document.body.append(modal);if(!all.length)all.push({id:uid(),title:'Mon premier schéma',nodes:[],edges:[]});doc=all[0];mode='edit';chosen=null;connecting=false;edgeSelected=null;linkFrom=null;draw();}
 function anchor(n,side){
  const w=n.w||175,h=n.h||95;
  return side==='top'?[n.x+w/2,n.y]:side==='right'?[n.x+w,n.y+h/2]:side==='bottom'?[n.x+w/2,n.y+h]:[n.x,n.y+h/2];
@@ -41,9 +42,9 @@ function edgeMarkup(e){
 }
 function caseTools(n){
  const color=(key,def,label)=>`<label>${label}<input type="color" data-dg-case-color="${key}" data-dg-node-id="${esc(n.id)}" value="${safeColor(n[key],def)}" title="${label}"></label>`;
- return `<div class="cap-dg-case-tools" data-dg-case-tools="${esc(n.id)}">
+ return `<div class="cap-dg-case-tools" data-dg-case-tools="${esc(n.id)}" style="${windowPositions['case:'+n.id]?`left:${windowPositions['case:'+n.id].x}px;top:${windowPositions['case:'+n.id].y}px`:''}"><div class="cap-dg-move" data-dg-move="case:${esc(n.id)}" title="Déplacer le menu">⠿ Options</div>
  ${color('fontColor','#294b70','Police')}
- ${color('fontOutline','#ffffff','Contour lettres')}
+ 
  ${color('color','#e8f2f4','Fond')}
  ${color('borderColor','#7196a1','Contour case')}
  <button type="button" data-dg="definition" data-dg-node-id="${esc(n.id)}">▤ Définition</button>
@@ -56,9 +57,9 @@ function draw(){
  sel.innerHTML=all.map(x=>`<option value="${esc(x.id)}" ${x.id===doc.id?'selected':''}>${esc(x.title)}</option>`).join('');
  modal.querySelector('#cap-diagram-nodes').innerHTML=doc.nodes.map(n=>{
  const active=chosen===n.id&&mode==='edit';
- const border=safeColor(n.borderColor,'#7196a1'),fc=safeColor(n.fontColor,'#294b70'),fo=safeColor(n.fontOutline,'#ffffff');
+ const border=safeColor(n.borderColor,'#7196a1'),fc=safeColor(n.fontColor,'#294b70');
  return `<div class="cap-shape ${esc(n.shape||'rect')} ${active?'selected':''}" data-dg-node="${esc(n.id)}" style="left:${n.x}px;top:${n.y}px;width:${n.w||175}px;height:${n.h||95}px;background:${safeColor(n.color,'#e8f2f4')};border-color:${border};color:${fc}">
- <div class="cap-shape-label" data-dg-label="${esc(n.id)}" ${active?'contenteditable="true" spellcheck="true"':''} style="color:${fc};-webkit-text-stroke:.4px ${fo};paint-order:stroke fill">${esc(n.text)}</div>
+ <div class="cap-shape-label" data-dg-label="${esc(n.id)}" ${active?'contenteditable="true" spellcheck="true"':''} style="color:${fc}">${esc(n.text)}</div>
  ${mode==='review'&&n.answer?'<span class="cap-shape-reveal">👁 Révéler</span>':''}
  ${active?caseTools(n):''}
  ${connecting&&mode==='edit'?sides.map(side=>`<button type="button" class="cap-dg-anchor ${linkFrom?.id===n.id&&linkFrom?.side===side?'active':''}" data-dg-anchor="${side}" data-dg-node-id="${esc(n.id)}" aria-label="Connecter ${side}"></button>`).join(''):''}
@@ -71,11 +72,13 @@ function draw(){
  if(!tools){tools=document.createElement('div');tools.id='cap-dg-edge-tools';modal.querySelector('#cap-diagram-stage').append(tools)}
  const edge=doc.edges.find(e=>e.id===edgeSelected);
  tools.hidden=!edge;
+ tools.style.display=edge?'flex':'none';
  if(edge){
  const g=geometry(edge);
- tools.style.left=Math.max(5,Math.min(760,g.cx-140))+'px';
- tools.style.top=Math.max(5,Math.min(680,g.cy-85))+'px';
- tools.innerHTML=`<label>Bout <select data-dg-edge-prop="style"><option value="line">Rien</option><option value="arrow">Flèche</option><option value="dot">Point</option></select></label>
+ const ep=windowPositions['edge:'+edge.id];
+ tools.style.left=(ep?.x??Math.max(5,Math.min(760,g.cx-140)))+'px';
+ tools.style.top=(ep?.y??Math.max(5,Math.min(680,g.cy-85)))+'px';
+ tools.innerHTML=`<div class="cap-dg-move" data-dg-move="edge:${esc(edge.id)}" title="Déplacer le menu">⠿ <span> Liaison</span></div><label>Bout <select data-dg-edge-prop="style"><option value="line">Rien</option><option value="arrow">Flèche</option><option value="dot">Point</option></select></label>
  <label>Type <select data-dg-edge-prop="pattern"><option value="solid">Trait</option><option value="dotted">Points</option><option value="dashed">Tirets</option></select></label>
  <label>Forme <select data-dg-edge-prop="form"><option value="straight">Droite</option><option value="curve">Libre / courbe</option><option value="orthogonal">Angles droits</option></select></label>
  <label>Couleur <input type="color" data-dg-edge-prop="stroke" value="${safeColor(edge.stroke,'#628a97')}"></label>
@@ -86,8 +89,8 @@ function draw(){
  const n=doc.nodes.find(n=>n.id===definitionOpen);
  if(n){
   const popup=document.createElement('div');popup.className='cap-dg-definition';popup.id='cap-dg-definition';
-  popup.style.left=Math.min(n.x,810)+'px';popup.style.top=Math.max(8,n.y-145)+'px';
-  popup.innerHTML=`<button type="button" data-dg="close-definition" aria-label="Fermer">✕</button><strong>Définition / explication</strong><textarea data-dg-answer="${esc(n.id)}" placeholder="Rédiger ici…">${esc(n.answer||'')}</textarea>`;
+  const dp=windowPositions['definition:'+n.id];popup.style.left=(dp?.x??Math.min(n.x,810))+'px';popup.style.top=(dp?.y??Math.max(8,n.y-145))+'px';
+  popup.innerHTML=`<div class="cap-dg-move" data-dg-move="definition:${esc(n.id)}" title="Déplacer la fenêtre">⠿ Définition / explication <button type="button" data-dg="close-definition" aria-label="Fermer">✕</button></div><textarea data-dg-answer="${esc(n.id)}" placeholder="Rédiger ici…">${esc(n.answer||'')}</textarea>`;
   modal.querySelector('#cap-diagram-stage').append(popup);
  }
  }
@@ -110,6 +113,7 @@ document.addEventListener('click',async e=>{
  const m=e.target.closest('#cap-diagram-modal');if(!m)return;
  if(e.target.id==='cap-diagram-modal'){close();return}
  if(e.target.closest('#cap-dg-definition')){if(e.target.closest('[data-dg="close-definition"]')){definitionOpen=null;draw()}return}
+ if(definitionOpen&&!e.target.closest('[data-dg="definition"]')){definitionOpen=null;document.getElementById('cap-dg-definition')?.remove()}
  const point=e.target.closest('[data-dg-anchor]');
  if(point&&connecting&&mode==='edit'){
   e.preventDefault();e.stopPropagation();
@@ -127,7 +131,7 @@ document.addEventListener('click',async e=>{
   e.preventDefault();const a=b.dataset.dg;
   if(a==='close'){close();return}
   if(a==='close-definition'){definitionOpen=null;draw();return}
-  if(a==='definition'){definitionOpen=b.dataset.dgNodeId;draw();document.querySelector('#cap-dg-definition textarea')?.focus();return}
+  if(a==='definition'){definitionOpen=definitionOpen===b.dataset.dgNodeId?null:b.dataset.dgNodeId;draw();if(definitionOpen)document.querySelector('#cap-dg-definition textarea')?.focus();return}
   if(a==='delete-node'){
    const id=b.dataset.dgNodeId;
    if(await window.capConfirm('Supprimer cette case et ses connexions ?')){
@@ -158,18 +162,19 @@ document.addEventListener('click',async e=>{
   if(chosen!==n.id){chosen=n.id;edgeSelected=null;definitionOpen=null;draw()}
   return;
  }
- if(definitionOpen){definitionOpen=null;draw();return}
- if(edgeSelected||chosen){edgeSelected=null;chosen=null;draw()}
+ if(definitionOpen||edgeSelected||chosen){definitionOpen=null;edgeSelected=null;chosen=null;draw()}
 });
 document.addEventListener('keydown',e=>{
  if(e.key==='Escape'&&document.getElementById('cap-diagram-modal')){
   e.preventDefault();
   if(definitionOpen){definitionOpen=null;draw()}
-  else close();
+  else if(edgeSelected||chosen){edgeSelected=null;chosen=null;draw()}else close();
  }
 });
 document.addEventListener('change',e=>{if(e.target.id==='cap-diagram-select'){saveDiagram();doc=store().find(x=>x.id===e.target.value);chosen=null;edgeSelected=null;definitionOpen=null;draw()}});
 document.addEventListener('pointerdown',e=>{
+ const move=e.target.closest('[data-dg-move]');
+ if(move&&doc&&!e.target.closest('button,input,select,textarea')){const panel=move.closest('#cap-dg-definition,#cap-dg-edge-tools,.cap-dg-case-tools');if(panel){floatingDrag={key:move.dataset.dgMove,x:e.clientX,y:e.clientY,left:parseFloat(panel.style.left)||0,top:parseFloat(panel.style.top)||0,panel};move.setPointerCapture(e.pointerId);e.preventDefault();return}}
  const control=e.target.closest('[data-dg-control]');
  if(control&&doc){const stage=document.getElementById('cap-diagram-stage');const r=stage.getBoundingClientRect();edgeDrag={id:control.dataset.dgControl,stageX:r.left,stageY:r.top,scrollX:stage.parentElement.scrollLeft,scrollY:stage.parentElement.scrollTop};control.setPointerCapture(e.pointerId);e.preventDefault();return}
  const resize=e.target.closest('[data-dg-resize]');
@@ -182,6 +187,7 @@ document.addEventListener('pointerdown',e=>{
  el.setPointerCapture(e.pointerId);
 });
 document.addEventListener('pointermove',e=>{
+ if(floatingDrag){const f=floatingDrag;const x=f.left+e.clientX-f.x,y=f.top+e.clientY-f.y;f.panel.style.left=x+'px';f.panel.style.top=y+'px';windowPositions[f.key]={x,y};return}
  if(edgeDrag&&doc){
   const ed=doc.edges.find(x=>x.id===edgeDrag.id);if(!ed)return;
   ed.cx=Math.max(0,Math.min(1100,e.clientX-edgeDrag.stageX+edgeDrag.scrollX));
@@ -202,6 +208,7 @@ document.addEventListener('pointermove',e=>{
  }
 });
 document.addEventListener('pointerup',()=>{
+ floatingDrag=null;
  if(edgeDrag){saveDiagram();edgeDrag=null;draw()}
  if(drag?.moved)saveDiagram();
  drag=null;

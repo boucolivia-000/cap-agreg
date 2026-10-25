@@ -1,0 +1,14 @@
+CAP AGRÉG’ V4.8 — INTERFACE ALLÉGÉE
+
+- Version visible uniquement sur la page d'accueil.
+- Navigation principale verticale à gauche à l'intérieur des rubriques (sur grand écran).
+- Barres de fonctionnalités conservées horizontalement en haut de l'espace de travail.
+- Présentation générale allégée.
+- Schémas : suppression du réglage « contour des lettres ».
+- Menu de liaison : fermeture au clic à l'extérieur et possibilité de déplacement par la poignée ⠿.
+- Fenêtre Définition : fermeture par ×, Échap, clic à l'extérieur et deuxième clic sur Définition.
+- Fenêtre Définition, menu de liaison et menu de case déplaçables par leur poignée ⠿.
+- Contenu de définition sauvegardé au fil de la saisie.
+
+IMPORTANT : exporter une sauvegarde JSON avant mise à jour. Ne pas effacer les données du navigateur.
+Validation : syntaxe vérifiée ; les interactions visuelles restent à tester sur navigateur et mobile.
