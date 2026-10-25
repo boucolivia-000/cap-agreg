@@ -1,0 +1,10 @@
+Cap Agrég’ V4.9 — Navigation réorganisée
+
+• Navigation générale (Accueil, Mes cours, Révisions, Sauvegarde, Sync) de retour en haut.
+• Dans la vue d’une fiche, les fonctions Mes fiches, Modifier, Cahier numérique, Fiche complète, Synthèse interactive, Enregistrements, Ressources et Imprimer/PDF sont désormais en colonne à gauche du contenu.
+• La fiche est à droite et occupe l’espace restant.
+• Sur les petits écrans, les fonctions de la fiche deviennent une bande horizontale défilante afin de conserver la lisibilité.
+• Les outils internes du Cahier numérique et des Schémas interactifs restent en haut.
+• Version affichée uniquement sur la page d’accueil.
+
+Avant la mise à jour : exporter les données et préserver les audios. Ne pas effacer les données du navigateur.
