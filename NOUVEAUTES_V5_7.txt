@@ -1,0 +1,14 @@
+CAP AGRÉG’ V5.7 — INTERFACE NEUTRE ET FONDS DE SCHÉMAS
+
+Interface générale : blancs, gris doux et anthracite. Menus et boutons harmonisés.
+Les huit catégories pédagogiques conservent leurs couleurs pastel existantes.
+
+Dans Schémas interactifs > Fond : Blanc, Quadrillage, Points, Lignes, Papier crème, Couleur libre.
+La couleur personnalisée est réglable avec un sélecteur.
+Le fond est mémorisé par schéma et repris dans la fiche complète et la synthèse interactive.
+Les anciennes fiches conservent le quadrillage par défaut.
+
+INSTALLATION : remplacer les fichiers de la branche main du dépôt cap-agreg.
+Faire une sauvegarde JSON préalable et conserver les audios importants.
+Ne pas vider les données du navigateur.
+Contrôles : syntaxe JavaScript et intégrité ZIP ; vérification visuelle en navigateur non effectuée.
