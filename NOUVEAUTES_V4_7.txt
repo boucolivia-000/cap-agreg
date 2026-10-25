@@ -1,0 +1,16 @@
+Cap Agrég’ V4.7 — Schémas personnalisables
+
+- Cliquer une case : modifier la notion directement dans la case.
+- Barre discrète sur le côté : couleur du texte, contour des lettres, fond et contour de case.
+- Bouton Définition : fenêtre flottante à proximité de la case, avec saisie directe.
+- Redimensionnement des cases par la poignée inférieure droite.
+- Cliquer sur une liaison : barre contextuelle près du trait.
+- Bout du trait : rien, flèche ou point.
+- Type de trait : continu, pointillé ou tirets.
+- Couleur et forme : droite, courbe déformable ou angles droits.
+- Faire glisser la poignée centrale pour ajuster la liaison.
+- Les liaisons suivent les cases déplacées.
+- Fermeture de l'éditeur par clic à l'extérieur ou touche Échap.
+
+Les autres fonctions sont conservées. Testez l'application sur vos appareils.
+Sauvegardez vos données avant installation et ne videz pas les données du navigateur.
