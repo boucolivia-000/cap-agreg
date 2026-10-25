@@ -1,0 +1,9 @@
+Cap Agrég’ V4.4.0 — 25 octobre 2026
+
+Nouveau : éditeur de schémas interactifs accessible depuis le Cahier Studio, en Pages et Tableau infini.
+- Plusieurs schémas par fiche ; cases déplaçables, rectangles, cercles, losanges, couleurs, flèches.
+- Définition/explication cachée par case ; mode Révision avec révélation au clic.
+- Sauvegarde dans la fiche et synchronisation avec les données de la fiche.
+- Numéro V4.4 affiché dans l’en-tête et le Cahier Studio.
+
+Note : le schéma s’ouvre dans un éditeur intégré plein écran ; son rendu n’est pas encore incorporé comme bloc à l’intérieur du texte des Pages.
