@@ -1,0 +1,19 @@
+CAP AGRÉG’ V5.3 — BLOCS LIBREMENT RÉORGANISABLES
+
+Dans la fiche :
+- Chaque ligne « Notion / Définition » est un bloc indépendant.
+- Les schémas, pages du Cahier Studio et tableaux deviennent également des blocs indépendants.
+- Flèches ↑ et ↓ pour déplacer un bloc au-dessus ou en dessous d'un autre, même entre deux notions.
+- Poignée ⠿ pour réorganiser les blocs par glisser-déposer sur ordinateur.
+- Ordre mémorisé dans chaque fiche et chaque catégorie, y compris après enregistrement et rechargement.
+- L'ordre est reproduit dans la fiche complète.
+
+Schémas :
+- L'encadré d'aperçu s'adapte aux dimensions des cases et des connexions (avec une petite marge).
+- Plus de grande zone quadrillée vide sous un petit schéma.
+- Les schémas restent modifiables avec « Modifier » et leurs réponses restent révélables au clic.
+
+Les contenus existants sont conservés. Avant l'installation, exportez une sauvegarde JSON.
+Ne videz pas les données du navigateur (les données de Nout’ Kaz peuvent être sur le même domaine).
+
+Validation : syntaxe JavaScript et intégrité ZIP. Test interactif dans un navigateur réel non réalisé.

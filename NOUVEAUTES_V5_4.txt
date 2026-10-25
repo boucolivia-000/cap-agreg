@@ -1,0 +1,13 @@
+Cap Agrég’ V5.4 — Synthèse complète et images
+
+• La synthèse interactive inclut les contenus du Cahier Studio et les schémas interactifs, en plus des notions et définitions.
+• Les titres des schémas sont masqués dans la synthèse interactive uniquement.
+• L’ordre personnalisé des éléments de chaque catégorie est repris dans la synthèse.
+• Le Cahier Studio (Pages) permet d’importer des images via le bouton « Image ».
+• Les Schémas interactifs permettent d’ajouter une image déplaçable et redimensionnable comme une case.
+• Les images intégrées sont enregistrées dans les données de la fiche et visibles dans ses aperçus.
+
+IMPORTANT : les images sont incorporées aux données de l’application ; les grosses images peuvent dépasser le quota de stockage du navigateur ou de synchronisation. Limite de fichier : 4 Mo, mais préférez des images nettement plus légères.
+
+Sauvegardez vos données JSON et vos audios avant mise à jour. Ne supprimez pas les données du navigateur.
+Contrôles effectués : syntaxe JavaScript et intégrité ZIP. Aucun test interactif navigateur n’a été réalisé.

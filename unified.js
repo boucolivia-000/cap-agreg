@@ -26,11 +26,30 @@ function content(f,cat,full=false){
  return html;
 }
 function actions(kind,item,full){return `<span class="cap-u-actions"><button type="button" data-u-edit="${kind}" data-u-id="${esc(item.id)}" title="Modifier">✎ Modifier</button><select aria-label="Catégorie" data-u-assign="${kind}" data-u-id="${esc(item.id)}"><option value="">Non classé</option>${categories().map(c=>`<option value="${esc(c)}" ${item.category===c?'selected':''}>${esc(c)}</option>`).join('')}</select></span>`}
-function diagram(d){const nodes=d.nodes||[],edges=d.edges||[];let maxX=Math.max(520,...nodes.map(n=>(+n.x||0)+(+n.w||175)+30)),maxY=Math.max(270,...nodes.map(n=>(+n.y||0)+(+n.h||95)+30));
+function diagram(d){
+ const nodes=d.nodes||[],edges=d.edges||[];
  const find=id=>nodes.find(n=>n.id===id);
  const anchor=(n,side)=>{let x=+n.x||0,y=+n.y||0,w=+n.w||175,h=+n.h||95;return side==='top'?[x+w/2,y]:side==='right'?[x+w,y+h/2]:side==='bottom'?[x+w/2,y+h]:[x,y+h/2]};
- const lines=edges.map(e=>{const a=find(e.from),b=find(e.to);if(!a||!b)return '';const [x1,y1]=anchor(a,e.fromSide||'right'),[x2,y2]=anchor(b,e.toSide||'left');const cx=Number.isFinite(e.cx)?e.cx:(x1+x2)/2,cy=Number.isFinite(e.cy)?e.cy:(y1+y2)/2;const form=e.form||'straight';const path=form==='orthogonal'?`M${x1} ${y1} H${cx} V${y2} H${x2}`:form==='curve'?`M${x1} ${y1} Q${cx*2-(x1+x2)/2} ${cy*2-(y1+y2)/2} ${x2} ${y2}`:`M${x1} ${y1} L${x2} ${y2}`;const color=safe(e.stroke,'#628a97'),dash=e.pattern==='dotted'?'2 7':e.pattern==='dashed'?'11 7':'';const arrow=e.style==='arrow'?`<path d="M${x2} ${y2} l-10 -5 v10 z" fill="${color}"/>`:e.style==='dot'?`<circle cx="${x2}" cy="${y2}" r="5" fill="${color}"/>`:'';return `<path d="${path}" fill="none" stroke="${color}" stroke-width="2.5" stroke-dasharray="${dash}"/>${arrow}`}).join('');
- return `<div class="cap-u-scroll"><div class="cap-u-diagram" style="width:${maxX}px;height:${maxY}px"><svg viewBox="0 0 ${maxX} ${maxY}" width="${maxX}" height="${maxY}">${lines}</svg>${nodes.map(n=>`<button type="button" class="cap-u-node" data-u-reveal="${esc(n.id)}" style="left:${+n.x||0}px;top:${+n.y||0}px;width:${+n.w||175}px;height:${+n.h||95}px;border-color:${safe(n.borderColor,'#7196a1')};background:${safe(n.color,'#e8f2f4')};color:${safe(n.fontColor,'#294b70')};border-radius:${n.shape==='circle'?'50%':n.shape==='diamond'?'5px':'10px'}" title="Cliquer pour révéler la définition">${esc(n.text)}${n.answer?`<span class="cap-u-answer" hidden>${esc(n.answer)}</span>`:''}</button>`).join('')}</div></div>`;
+ const positions=[];
+ nodes.forEach(n=>{const x=+n.x||0,y=+n.y||0,w=+n.w||175,h=+n.h||95;positions.push([x,y],[x+w,y+h])});
+ const lines=edges.map(e=>{const a=find(e.from),b=find(e.to);if(!a||!b)return '';
+  const [x1,y1]=anchor(a,e.fromSide||'right'),[x2,y2]=anchor(b,e.toSide||'left');
+  const cx=Number.isFinite(e.cx)?e.cx:(x1+x2)/2,cy=Number.isFinite(e.cy)?e.cy:(y1+y2)/2;
+  const form=e.form||'straight';
+  if(form==='orthogonal')positions.push([cx,y1],[cx,y2]);
+  if(form==='curve')positions.push([cx*2-(x1+x2)/2,cy*2-(y1+y2)/2]);
+  const path=form==='orthogonal'?`M${x1} ${y1} H${cx} V${y2} H${x2}`:form==='curve'?`M${x1} ${y1} Q${cx*2-(x1+x2)/2} ${cy*2-(y1+y2)/2} ${x2} ${y2}`:`M${x1} ${y1} L${x2} ${y2}`;
+  const color=safe(e.stroke,'#628a97'),dash=e.pattern==='dotted'?'2 7':e.pattern==='dashed'?'11 7':'';
+  const arrow=e.style==='arrow'?`<circle cx="${x2}" cy="${y2}" r="4" fill="${color}"/>`:e.style==='dot'?`<circle cx="${x2}" cy="${y2}" r="5" fill="${color}"/>`:'';
+  return `<path d="${path}" fill="none" stroke="${color}" stroke-width="2.5" stroke-dasharray="${dash}"/>${arrow}`;
+ }).join('');
+ const padding=22;
+ const minX=Math.min(Infinity,...positions.map(p=>p[0]))-padding;
+ const minY=Math.min(Infinity,...positions.map(p=>p[1]))-padding;
+ const maxX=Math.max(...positions.map(p=>p[0]),0)+padding;
+ const maxY=Math.max(...positions.map(p=>p[1]),0)+padding;
+ const width=Math.max(90,Math.ceil(maxX-minX)),height=Math.max(70,Math.ceil(maxY-minY));
+ return `<div class="cap-u-scroll cap-u-fit-scroll"><div class="cap-u-diagram cap-u-fit-diagram" style="width:${width}px;height:${height}px;max-width:none"><svg viewBox="${minX} ${minY} ${width} ${height}" width="${width}" height="${height}">${lines}</svg>${nodes.map(n=>`<button type="button" class="cap-u-node" data-u-reveal="${esc(n.id)}" style="left:${(+n.x||0)-minX}px;top:${(+n.y||0)-minY}px;width:${+n.w||175}px;height:${+n.h||95}px;border-color:${safe(n.borderColor,'#7196a1')};background:${safe(n.color,'#e8f2f4')};color:${safe(n.fontColor,'#294b70')};border-radius:${n.shape==='circle'?'50%':n.shape==='diamond'?'5px':'10px'}" title="Cliquer pour révéler la définition">${n.image?`<img class="cap-u-node-image" src="${esc(n.image)}" alt="" draggable="false">`:''}${esc(n.text)}${n.answer?`<span class="cap-u-answer" hidden>${esc(n.answer)}</span>`:''}</button>`).join('')}</div></div>`;
 }
 window.capUnified={content,categories};
 function data(){return (typeof draft!=='undefined'&&draft)||((typeof db!=='undefined'&&typeof selected!=='undefined')?db.fiches.find(f=>f.id===selected.fiche):null)}
